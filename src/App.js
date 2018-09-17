@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {loadResources, loadResource} from './resourceLoader';
+import resources from './resourceArray';
 
 class App extends Component {
   render() {
