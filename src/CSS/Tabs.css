@@ -1,0 +1,11 @@
+.tabs{
+    display: flex;
+    width: 100%;
+
+}
+.btn{
+    font-size: 20px;
+    width: 100px;
+    /*background-color: blue;*/
+    box-shadow: 2px 2px;
+}
