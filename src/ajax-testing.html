@@ -212,11 +212,12 @@
 
 
 
-    function loadResources(category, type, resourceHandler) {
-        for (let i=0; i < resources.length; i++){
-            if( resources[i].category === category){
+
+    function loadResources(resourceArray, category, type, resourceHandler) {
+        for (let i=0; i < resourceArray.length; i++){
+            if( resourceArray[i].category === category){
                 for (let j=0; j<4; j++){
-                    let resourceObject = resources[i][type][j];
+                    let resourceObject = resourceArray[i][type][j];
                     if (resourceObject.source === undefined){
                         loadResource(resourceObject, resourceHandler);
                     } else {
@@ -228,8 +229,8 @@
     }
 
 
-    loadResources('a', 'images', displayImage);
-    loadResources('a', 'texts', displayTexts);
+    loadResources(resources, 'a', 'images', displayImage);
+    loadResources(resources, 'a', 'texts', displayTexts);
 
 </script>
 
