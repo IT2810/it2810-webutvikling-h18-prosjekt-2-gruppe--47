@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-//import {loadResources, loadResource} from './resourceLoader';
-//import resources from './resourceArray';
+import axios from 'axios';
 
 class ResourceComponent extends Component {
     constructor(props) {
@@ -132,26 +131,24 @@ class ResourceComponent extends Component {
         };
     }
 
-    loadResource(resources, resourceObject, resourceHandler){
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200){
-                resourceObject.source = this.responseText;
-                console.log(resourceObject);
-
-                resourceHandler(resourceObject.source);
-            }
-        };
-        xhttp.open("GET", resourceObject.url, true);
-        xhttp.send();
+    loadResource(resources, resourceObject, callback){
+        axios.get(resourceObject.url)
+            .then(res => {
+                console.log(res.data);
+                resourceObject.source = res.data;
+                callback();
+            })
+            .catch( (e) => {
+                console.error('Could not retrieve resource', e);
+            })
     }
 
-    checkResourceLoaded(resourceArray, category, type, exhibition, resourceHandler){
+    checkResourceLoaded(resourceArray, category, type, exhibition, callback){
         let resourceObject = resourceArray[category][type][exhibition];
         if (resourceObject.source === undefined){
-            this.loadResource(resourceArray, resourceObject, resourceHandler);
+            this.loadResource(resourceArray, resourceObject, callback);
         } else {
-            resourceHandler(resourceObject.source);
+            callback();
         }
     }
 
