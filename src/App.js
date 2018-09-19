@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ResourceComponent from './ResourceComponent'
+import ResourceComponent from './ResourceComponent';
+import SoundContainer from './Containers/SoundContainer';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <ResourceComponent imageCategory={2} textCategory={1} exhibition={2}></ResourceComponent>
+          <SoundContainer category={1} exhibition={2}/>
       </div>
     );
   }
