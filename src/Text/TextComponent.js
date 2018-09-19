@@ -2,14 +2,15 @@ import React from 'react';
 import './Text.css';
 
 const textComponent = (props) => {
-    const parsed = JSON.parse(props.text);
+
     return (
         <div className="TextComponent">
-            <h1>{parsed.title}</h1>
+            <h1>{props.title}</h1>
             <br/>
-            <p>{parsed.author}</p>
+            <p>{props.author}</p>
             <br/>
-            <p>{parsed.poem}</p>
+            {/* Outputs all lines in the poem as a own p */}
+            {props.poem.map((line, i) => <p key={i}>{line}</p>)}
         </div>
     )
 };
