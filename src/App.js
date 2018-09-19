@@ -42,6 +42,8 @@ class App extends Component {
                     soundCategory: categoryState.selectedOption,
                 });
                 break;
+            default:
+                console.error('Received invalid mediaType:', categoryState.mediaType);
         }
     }
 
@@ -55,7 +57,9 @@ class App extends Component {
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                <ResourceComponent imageCategory={this.state.imageCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}></ResourceComponent>
+                <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
+                <Tabs callback={this.handleTabChange}/>
+                <Categories mediaType='text' name={['a', 'b', 'c']} callback={this.handleCategoryChange}/>
             </div>
         );
     }

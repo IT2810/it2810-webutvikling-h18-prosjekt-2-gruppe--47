@@ -5,11 +5,11 @@ class Categories extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            mediaType: props.mediaType,
+            mediaType: this.props.mediaType,
             categories: [
-                {name: props.name[0]},
-                {name: props.name[1]},
-                {name: props.name[2]},
+                {name: this.props.name[0]},
+                {name: this.props.name[1]},
+                {name: this.props.name[2]},
             ],
             selectedOption: 0
         }
