@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './CSS/App.css';
 import ResourceComponent from './ResourceComponent'
+import Tabs from './Components/Tabs';
 
 class App extends Component {
     constructor() {
