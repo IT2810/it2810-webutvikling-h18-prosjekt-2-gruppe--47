@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './CSS/App.css';
 import ResourceComponent from './ResourceComponent'
+import Categories from './Categories/Categories';
 import Tabs from './Components/Tabs';
 
 class App extends Component {
