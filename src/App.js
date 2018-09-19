@@ -7,7 +7,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            imageCategory: 0,
+            pictureCategory: 0,
             textCategory: 0,
             soundCategory: 0,
             exhibition: 0
@@ -23,12 +23,24 @@ class App extends Component {
         })
     }
 
-    handleCategoryChange(new_values){
-        this.setState({
-            imageCategory: new_values.imageCategory,
-            textCategory: new_values.textCategory,
-            soundCategory: new_values.soundCategory
-        })
+    handleCategoryChange(categoryState){
+        switch (categoryState.mediaType) {
+            case 'picture':
+                this.setState({
+                    pictureCategory: categoryState.selectedOption,
+                });
+                break;
+            case 'text':
+                this.setState({
+                    textCategory: categoryState.selectedOption,
+                });
+                break;
+            case 'sound':
+                this.setState({
+                    soundCategory: categoryState.selectedOption,
+                });
+                break;
+        }
     }
 
     render() {
