@@ -15,7 +15,6 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <ResourceComponent imageCategory={2} textCategory={1} exhibition={2}></ResourceComponent>
-          {/*<ResourceComponent category={3} type={'texts'}></ResourceComponent>*/}
       </div>
     );
   }
