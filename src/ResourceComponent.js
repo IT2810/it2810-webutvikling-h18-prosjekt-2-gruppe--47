@@ -13,19 +13,19 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/Bat.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/Cow.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/owl.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/wolf.svg",
                                     source: undefined
                                 }
                             ],
@@ -53,19 +53,19 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/automobile.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/france_citroen.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/Gallardo.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/regular_car.svg",
                                     source: undefined
                                 }
                             ],
@@ -93,19 +93,19 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/barden_decor.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/botany_floral.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/easter_tulip.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/floral_bouquet.svg",
                                     source: undefined
                                 }
                             ],
@@ -135,7 +135,7 @@ class ResourceComponent extends Component {
     loadResource(resources, resourceObject, callback){
         axios.get(resourceObject.url)
             .then(res => {
-                console.log(res.data);
+                //console.log(res.data);
                 resourceObject.source = res.data;
                 callback();
             })
@@ -146,6 +146,7 @@ class ResourceComponent extends Component {
 
     checkResourceLoaded(resourceArray, category, type, exhibition, callback){
         let resourceObject = resourceArray[category][type][exhibition];
+        //console.log(resourceObject);
         if (resourceObject.source === undefined){
             this.loadResource(resourceArray, resourceObject, callback);
         } else {
@@ -154,8 +155,7 @@ class ResourceComponent extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory) {
-
+        if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
             // Potential new AJAX call(s) if the resource is not already loaded
             this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
                     this.setState({resources: this.state.resources});
@@ -176,12 +176,12 @@ class ResourceComponent extends Component {
         // TODO: Not necessary to check, as nothing is loaded upon first mounting
         this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
                 this.setState({resources: this.state.resources});
-                console.log(this.state.resources);
+                //console.log(this.state.resources);
             }
         );
         this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, () =>{
                 this.setState({resources: this.state.resources});
-                console.log(this.state.resources);
+                //console.log(this.state.resources);
             }
         );
     }
@@ -203,13 +203,13 @@ class ResourceComponent extends Component {
                 Får ikke lagt til faktiske bilder enda, da bildekomponentene ikke er skrevet enda, så her kommer det en cheap placeholder:
                 <br/>
                 <br/>
-                {console.log(`
+                {/*
 
                 <PictureComponent src={this.state.resources[this.props.imageCategory].images[this.props.exhibition}> </PictureComponent>
 
                 <TextComponent src={this.state.resources[this.props.textCategory].texts[this.props.exhibition                                                                                                           }> </TextComponent>
 
-                `)
+                */
                 }
 
 
@@ -217,11 +217,6 @@ class ResourceComponent extends Component {
                 {console.log(this.state.resources)}
 
                 {/* This is just a placeholder, there should be components here when finished*/}
-
-
-
-
-
                 <div dangerouslySetInnerHTML={{__html: this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}}/>
 
 
