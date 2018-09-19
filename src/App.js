@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ResourceComponent from './ResourceComponent';
 import SoundContainer from './Containers/SoundContainer';
+import Categories from './Categories/Categories';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
