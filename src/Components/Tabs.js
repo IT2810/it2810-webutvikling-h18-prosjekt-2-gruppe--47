@@ -10,9 +10,9 @@ class Tabs extends Component {
     handleChange = (selector) => {
         this.setState ({
             selected: selector
+        }, () => {
+            this.props.callback(this.state.selected)
         });
-
-        this.props.callback(this.state.selected)
     };
     render(){
         return(

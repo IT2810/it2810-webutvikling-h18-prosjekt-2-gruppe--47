@@ -17,10 +17,10 @@ class Categories extends Component {
     //Method that changes the state of the component and the parent to
     handleOptionChange = (event) => {
         this.setState({
-            selectedOption: event.target.value
+            selectedOption: Number(event.target.value)
+        }, () => {
+            this.props.callback(this.state);
         });
-
-        this.props.callback(this.state)
     };
 
     render()

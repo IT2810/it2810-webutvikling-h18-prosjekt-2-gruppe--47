@@ -22,7 +22,7 @@ class App extends Component {
     handleTabChange(new_value) {
         this.setState({
             exhibition: new_value
-        })
+        });
     }
 
     handleCategoryChange(categoryState){
@@ -50,6 +50,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                {/*
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 className="App-title">Welcome to React</h1>
@@ -57,9 +58,10 @@ class App extends Component {
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
+                */}
                 <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
                 <Tabs callback={this.handleTabChange}/>
-                <Categories mediaType='text' name={['a', 'b', 'c']} callback={this.handleCategoryChange}/>
+                <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
             </div>
         );
     }
