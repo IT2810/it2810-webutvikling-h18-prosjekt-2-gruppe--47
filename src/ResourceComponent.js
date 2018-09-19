@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import TextComponent from './Text/TextComponent'
+import Picture from "./Components/Picture";
 
 class ResourceComponent extends Component {
     constructor(props) {
@@ -188,7 +189,7 @@ class ResourceComponent extends Component {
 
     render(){
         const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
-        console.log(txtObj);
+        console.log(this.state.resources);
         console.log(txtObj);
 
         let txtComp;
@@ -197,33 +198,9 @@ class ResourceComponent extends Component {
         }
 
         return(
-            <div className="resourceComponent">
-
-                {console.log(this.state.resources)}
-                Får ikke lagt til faktiske bilder enda, da bildekomponentene ikke er skrevet enda, så her kommer det en cheap placeholder:
-                <br/>
-                <br/>
-                {/*
-
-                <PictureComponent src={this.state.resources[this.props.imageCategory].images[this.props.exhibition}> </PictureComponent>
-
-                <TextComponent src={this.state.resources[this.props.textCategory].texts[this.props.exhibition                                                                                                           }> </TextComponent>
-
-                */
-                }
-
-
-                {console.log(this.props)}
-                {console.log(this.state.resources)}
-
-                {/* This is just a placeholder, there should be components here when finished*/}
-                <div dangerouslySetInnerHTML={{__html: this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}}/>
-
-
+            <div className="resourceContainer">
+                <Picture picturesrc={this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}/>
                 {txtComp}
-
-
-
             </div>
         )
     }
