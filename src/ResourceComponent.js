@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import TextComponent from './Text/TextComponent'
 
 class ResourceComponent extends Component {
     constructor(props) {
@@ -30,19 +31,19 @@ class ResourceComponent extends Component {
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/DearFriends.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
-                                source: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id gravida sem. Quisque vitae est ornare, tempus erat nec, sagittis mi. Suspendisse ut sagittis massa. Quisque malesuada vulputate elit, sed ornare purus dapibus a. Vestibulum finibus elementum ligula, vel condimentum lorem pellentesque in. Etiam tincidunt ut nunc sit amet lobortis. Mauris commodo metus ut scelerisque consectetur. Sed mollis est sed lectus placerat, vel porttitor urna iaculis. Donec sem libero, lobortis non dolor a, vehicula volutpat nisl. Pellentesque sodales odio vehicula ex iaculis, luctus ultricies dui blandit. Fusce consectetur magna eget ipsum viverra, a aliquet lacus rhoncus. Donec feugiat maximus mauris, ut sagittis dolor laoreet vitae. Aliquam nisl diam, feugiat at hendrerit vitae, tempus quis nunc. Suspendisse placerat lacus lacus, in sagittis risus dapibus non. Curabitur purus lacus, bibendum nec fringilla a, efficitur vel augue."
-                            },
-                            {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/EpistlefromMrsYongetoHerHusband.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/TheAlmondTree.json",
+                                source: undefined
+                            },
+                            {
+                                url: "Poems/Epistles/ToSirHenryWotton.json",
                                 source: undefined
                             }
                         ]
@@ -70,19 +71,19 @@ class ResourceComponent extends Component {
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/Acon.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/Fan-PieceforHerImperialLord.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/London-mybeautiful.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/OdeinMemory.json",
                                 source: undefined
                             }
                         ]
@@ -110,19 +111,19 @@ class ResourceComponent extends Component {
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/ATriad.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/LadyMontrevor.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/Sonnet126.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/SonnetV.json",
                                 source: undefined
                             }
                         ]
@@ -186,6 +187,15 @@ class ResourceComponent extends Component {
     }
 
     render(){
+        const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
+        console.log(txtObj);
+        console.log(txtObj);
+
+        let txtComp;
+        if(txtObj){
+            txtComp = <TextComponent title={txtObj.title} author={txtObj.author} poem={txtObj.poem} />;
+        }
+
         return(
             <div className="resourceComponent">
 
@@ -193,13 +203,13 @@ class ResourceComponent extends Component {
                 Får ikke lagt til faktiske bilder enda, da bildekomponentene ikke er skrevet enda, så her kommer det en cheap placeholder:
                 <br/>
                 <br/>
-                {`
+                {/*
 
                 <PictureComponent src={this.state.resources[this.props.imageCategory].images[this.props.exhibition}> </PictureComponent>
 
                 <TextComponent src={this.state.resources[this.props.textCategory].texts[this.props.exhibition                                                                                                           }> </TextComponent>
 
-                `
+                */
                 }
 
 
@@ -210,9 +220,7 @@ class ResourceComponent extends Component {
                 <div dangerouslySetInnerHTML={{__html: this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}}/>
 
 
-
-                <p dangerouslySetInnerHTML={{__html: this.state.resources[this.props.textCategory].texts[this.props.exhibition].source}}/>
-
+                {txtComp}
 
 
 
