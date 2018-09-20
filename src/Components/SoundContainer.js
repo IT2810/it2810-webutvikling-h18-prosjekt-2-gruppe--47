@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import SoundPlayer from '../Components/SoundPlayer';
+import SoundPlayer from '../Presentational/SoundPlayer';
 
 class SoundContainer extends Component{
     constructor(props){

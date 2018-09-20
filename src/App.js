@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './CSS/App.css';
-import ResourceComponent from './ResourceComponent'
-import Categories from './Categories/Categories';
+import ResourceComponent from './Components/ResourceComponent'
+import Categories from './Components/Categories';
 import Tabs from './Components/Tabs';
-import SoundContainer from './Containers/SoundContainer';
+import SoundContainer from './Components/SoundContainer';
 
 class App extends Component {
     constructor() {
