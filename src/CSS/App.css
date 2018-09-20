@@ -1,1 +1,22 @@
+.app{
+    overflow-y: overlay;
+    background-color: lightblue;
+}
+
+@media only screen and (min-width: 992px){
+    .resourceContainer{
+        display: flex;
+        width: 800px;
+        margin: 0 auto;
+    }
+    .picture{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+.title{
+    text-align: center;
+    text-decoration: underline;
+}
 

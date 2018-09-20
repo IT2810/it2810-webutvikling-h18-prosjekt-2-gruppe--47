@@ -27,24 +27,25 @@ class Categories extends Component {
     {
 
         return (
-            <div className="Categories">
+            <div className="categories">
+                <label className="radioLabel">{this.state.mediaType}:</label>
                 <form>
-                    <p>{this.state.mediaType}</p>
-                    <div className="radio">
-                        <input type="radio" value={0}
-                               checked={this.state.selectedOption === 0}
-                               onChange={this.handleOptionChange}/>
-                        <p>{this.state.categories[0].name}</p>
-                        <input type="radio" value={1}
-                               checked={this.state.selectedOption === 1}
-                               onChange={this.handleOptionChange}/>
-                        <p>{this.state.categories[1].name}</p>
-                        <input type="radio" value={2}
-                               checked={this.state.selectedOption === 2}
-                               onChange={this.handleOptionChange}/>
-                        <p>{this.state.categories[2].name}</p>
-                    </div>
-                </form>
+                <br/><input type="radio" value={0}
+                    checked={this.state.selectedOption === 0}
+                    onChange={this.handleOptionChange}/>
+                    <span>{this.state.categories[0].name}</span>           
+                        
+                    <input type="radio" value={1}
+                    checked={this.state.selectedOption === 1}
+                    onChange={this.handleOptionChange}/>
+                    <span>{this.state.categories[1].name}</span>
+
+                    <input type="radio" value={2}
+                    checked={this.state.selectedOption === 2}
+                    onChange={this.handleOptionChange}/>
+                    <span>{this.state.categories[2].name}</span>
+                   
+                </form>                
             </div>
         );
     }

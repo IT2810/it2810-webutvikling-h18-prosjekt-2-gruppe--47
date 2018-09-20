@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './CSS/App.css';
 import ResourceComponent from './Components/ResourceComponent'
 import Categories from './Components/Categories';
+import './CSS/Picture.css';
 import Tabs from './Components/Tabs';
 import SoundContainer from './Components/SoundContainer';
 
@@ -49,7 +50,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="app">
+                <h1 className="title">En legendarisk utstilling</h1>
                 <Tabs callback={this.handleTabChange}/>
                 <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
