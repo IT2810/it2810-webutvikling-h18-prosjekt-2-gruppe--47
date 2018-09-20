@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import TextComponent from './Text/TextComponent'
-import Picture from "./Components/Picture";
+import TextComponent from '../Presentational/TextComponent'
+import Picture from '../Presentational/Picture';
 
 class ResourceComponent extends Component {
     constructor(props) {
@@ -131,12 +131,16 @@ class ResourceComponent extends Component {
                     }
             ]
         };
+        this.updateState = this.updateState.bind(this);
+    }
+
+    updateState(){
+        this.setState({resources: this.state.resources});
     }
 
     loadResource(resources, resourceObject, callback){
         axios.get(resourceObject.url)
             .then(res => {
-                //console.log(res.data);
                 resourceObject.source = res.data;
                 callback();
             })
@@ -147,7 +151,6 @@ class ResourceComponent extends Component {
 
     checkResourceLoaded(resourceArray, category, type, exhibition, callback){
         let resourceObject = resourceArray[category][type][exhibition];
-        //console.log(resourceObject);
         if (resourceObject.source === undefined){
             this.loadResource(resourceArray, resourceObject, callback);
         } else {
@@ -158,51 +161,27 @@ class ResourceComponent extends Component {
     componentDidUpdate(prevProps) {
         if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
             // Potential new AJAX call(s) if the resource is not already loaded
-            this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
-                    this.setState({resources: this.state.resources});
-                    console.log(this.state.resources);
-                }
-            );
-            this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, () =>{
-                    this.setState({resources: this.state.resources});
-                    console.log(this.state.resources);
-                }
-            );
+            this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, this.updateState);
+            this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, this.updateState);
         }
     }
 
     componentDidMount(){
-
-        // Checks for resources already loaded, if not, performs Ajax call
-        // TODO: Not necessary to check, as nothing is loaded upon first mounting
-        this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
-                this.setState({resources: this.state.resources});
-                //console.log(this.state.resources);
-            }
-        );
-        this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, () =>{
-                this.setState({resources: this.state.resources});
-                //console.log(this.state.resources);
-            }
-        );
+        // Will perform AJAX calls
+        this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, this.updateState);
+        this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, this.updateState);
     }
 
     render(){
         const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
-        console.log(this.state.resources);
-        console.log(txtObj);
+        const pictureSrc = this.state.resources[this.props.imageCategory].images[this.props.exhibition].source;
+        if(txtObj) {
+            return [
+                <Picture key="0" picturesrc={pictureSrc}/>,
+                <TextComponent key="1" title={txtObj.title} author={txtObj.author} poem={txtObj.poem}/>
+            ]
+        } else {return null}
 
-        let txtComp;
-        if(txtObj){
-            txtComp = <TextComponent title={txtObj.title} author={txtObj.author} poem={txtObj.poem} />;
-        }
-
-        return(
-            <div className="resourceContainer">
-                <Picture picturesrc={this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}/>
-                {txtComp}
-            </div>
-        )
     }
 }
 

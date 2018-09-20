@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './CSS/App.css';
+import ResourceComponent from './Components/ResourceComponent'
+import Categories from './Components/Categories';
 import './CSS/Picture.css';
-import ResourceComponent from './ResourceComponent'
-import Categories from './Categories/Categories';
 import Tabs from './Components/Tabs';
-import SoundContainer from './Containers/SoundContainer';
+import SoundContainer from './Components/SoundContainer';
 
 class App extends Component {
     constructor() {
@@ -52,23 +51,14 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                {/*
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                */}
                 <h1 className="title">En legendarisk utstilling</h1>
                 <Tabs callback={this.handleTabChange}/>
                 <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='sound' name={['Applause', 'Horse', 'Laughter']} callback={this.handleCategoryChange}/>
-                <div className="main-container">
-                  <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
-                  <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
+                <div className='main-content'>
+                    <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
+                    <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
                 </div>
             </div>
         );

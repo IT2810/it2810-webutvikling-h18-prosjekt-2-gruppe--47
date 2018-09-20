@@ -1,5 +1,5 @@
 import React from 'react';
-import './Text.css';
+import '../CSS/Text.css';
 
 const textComponent = (props) => {
 

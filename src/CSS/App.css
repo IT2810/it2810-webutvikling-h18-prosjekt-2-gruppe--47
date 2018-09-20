@@ -4,7 +4,7 @@
 }
 
 @media only screen and (min-width: 992px){
-    .resourceContainer{
+    .main-content{
         display: flex;
         width: 800px;
         margin: 0 auto;

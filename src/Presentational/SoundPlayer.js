@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../CSS/Sound.css';
 
 class SoundPlayer extends Component {
     constructor(props){
@@ -16,12 +17,10 @@ class SoundPlayer extends Component {
 
     render(){
         return(
-            <div className="soundPlayer">
             <audio controls ref={this.audioRef}>
                 <source src = {this.props.soundSource} type="audio/mp3"/>
                 Your browser does not support this audio tag
             </audio>
-            </div>
         );
     }
 }
