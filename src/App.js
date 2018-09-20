@@ -5,6 +5,7 @@ import './CSS/Picture.css';
 import ResourceComponent from './ResourceComponent'
 import Categories from './Categories/Categories';
 import Tabs from './Components/Tabs';
+import SoundContainer from './Containers/SoundContainer';
 
 class App extends Component {
     constructor() {
@@ -66,9 +67,11 @@ class App extends Component {
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='sound' name={['Applause', 'Horse', 'Laughter']} callback={this.handleCategoryChange}/>
                 <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
+                <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
             </div>
         );
     }
+
 }
 
 export default App;
