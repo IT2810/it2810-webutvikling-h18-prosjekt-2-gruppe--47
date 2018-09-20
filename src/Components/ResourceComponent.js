@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import TextComponent from './../Presentational/TextComponent'
-import Picture from './../Presentational/Picture';
+import TextComponent from '../Presentational/TextComponent'
+import Picture from '../Presentational/Picture';
 
 class ResourceComponent extends Component {
     constructor(props) {
