@@ -61,7 +61,7 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
                 */}
-
+                <h1 className="title">En legendarisk utstilling</h1>
                 <Tabs callback={this.handleTabChange}/>
                 <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
