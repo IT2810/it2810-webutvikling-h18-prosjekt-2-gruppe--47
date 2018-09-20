@@ -1,0 +1,14 @@
+.textComponent{
+    border: 1px solid black;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.textComponent > h1{
+    text-decoration: underline;
+}
+
+.textComponent > p{
+    font-size: 20px;
+}
