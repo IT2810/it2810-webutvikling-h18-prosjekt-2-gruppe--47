@@ -173,17 +173,15 @@ class ResourceComponent extends Component {
     }
 
     render(){
-        let txtComp;
         const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
-        if(txtObj){
-            txtComp = <TextComponent title={txtObj.title} author={txtObj.author} poem={txtObj.poem} />;
-        }
-        return(
-            <div className="resourceContainer">
-                <Picture picturesrc={this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}/>
-                {txtComp}
-            </div>
-        )
+        const pictureSrc = this.state.resources[this.props.imageCategory].images[this.props.exhibition].source;
+        if(txtObj) {
+            return [
+                <Picture key="0" picturesrc={pictureSrc}/>,
+                <TextComponent key="1" title={txtObj.title} author={txtObj.author} poem={txtObj.poem}/>
+            ]
+        } else {return null}
+
     }
 }
 

@@ -16,12 +16,10 @@ class SoundPlayer extends Component {
 
     render(){
         return(
-            <div>
             <audio controls ref={this.audioRef}>
                 <source src = {this.props.soundSource} type="audio/mp3"/>
                 Your browser does not support this audio tag
             </audio>
-            </div>
         );
     }
 }
