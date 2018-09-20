@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import SoundPlayer from '../Presentational/SoundPlayer';
 
 class SoundContainer extends Component{
-    constructor(props){
-        super(props);
-    }
-
     render(){
         const musicFiles = [["Sounds/Applause/applause0.mp3","Sounds/Applause/applause1.mp3","Sounds/Applause/applause2.mp3","Sounds/Applause/applause3.mp3"],
                     ["Sounds/Horse/horse0.mp3","Sounds/Horse/horse1.mp3","Sounds/Horse/horse2.mp3","Sounds/Horse/horse3.mp3"],
