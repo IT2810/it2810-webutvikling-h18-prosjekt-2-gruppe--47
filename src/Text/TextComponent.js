@@ -4,7 +4,7 @@ import './Text.css';
 const textComponent = (props) => {
 
     return (
-        <div className="TextComponent">
+        <div className="textComponent">
             <h1>{props.title}</h1>
             <br/>
             <p>{props.author}</p>

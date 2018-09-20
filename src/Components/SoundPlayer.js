@@ -16,7 +16,7 @@ class SoundPlayer extends Component {
 
     render(){
         return(
-            <div>
+            <div className="soundPlayer">
             <audio controls ref={this.audioRef}>
                 <source src = {this.props.soundSource} type="audio/mp3"/>
                 Your browser does not support this audio tag

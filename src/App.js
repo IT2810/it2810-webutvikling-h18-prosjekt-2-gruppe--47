@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './CSS/App.css';
+import './CSS/Picture.css';
 import ResourceComponent from './ResourceComponent'
 import Categories from './Categories/Categories';
 import Tabs from './Components/Tabs';
@@ -50,7 +51,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="app">
                 {/*
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
@@ -60,13 +61,15 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
                 */}
-
+                <h1 className="title">En legendarisk utstilling</h1>
                 <Tabs callback={this.handleTabChange}/>
                 <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='sound' name={['Applause', 'Horse', 'Laughter']} callback={this.handleCategoryChange}/>
-                <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
-                <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
+                <div className="main-container">
+                  <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
+                  <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
+                </div>
             </div>
         );
     }
