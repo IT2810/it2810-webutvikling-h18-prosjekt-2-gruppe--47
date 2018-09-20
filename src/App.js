@@ -17,7 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
           <ResourceComponent imageCategory={2} textCategory={1} exhibition={2}></ResourceComponent>
-          <SoundContainer category={1} exhibition={2}/>
+          <SoundContainer category={2} exhibition={3}/>
       </div>
     );
   }

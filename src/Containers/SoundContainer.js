@@ -7,9 +7,9 @@ class SoundContainer extends Component{
     }
 
     render(){
-        const musicFiles = [["applause0.mp3","applause1.mp3","applause2.mp3","applause3.mp3"],
-                    ["horse0.mp3","horse1.mp3","horse2.mp3","horse3.mp3"],
-                    ["laughter0.mp3","laughter1.mp3","laughter2.mp3","laughter3.mp3"]];
+        const musicFiles = [["Sounds/Applause/applause0.mp3","Sounds/Applause/applause1.mp3","Sounds/Applause/applause2.mp3","Sounds/Applause/applause3.mp3"],
+                    ["Sounds/Horse/horse0.mp3","Sounds/Horse/horse1.mp3","Sounds/Horse/horse2.mp3","Sounds/Horse/horse3.mp3"],
+                    ["Sounds/Laughter/laughter0.mp3","Sounds/Laughter/laughter1.mp3","Sounds/Laughter/laughter2.mp3","Sounds/Laughter/laughter3.mp3"]];
         return(
         <SoundPlayer soundSource = {musicFiles[this.props.category][this.props.exhibition]}/>
         );
