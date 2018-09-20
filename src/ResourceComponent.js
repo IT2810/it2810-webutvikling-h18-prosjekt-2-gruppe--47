@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import TextComponent from './Text/TextComponent'
+import Picture from "./Components/Picture";
 
 class ResourceComponent extends Component {
     constructor(props) {
@@ -12,37 +14,37 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/Bat.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/Cow.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/owl.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Animals/wolf.svg",
                                     source: undefined
                                 }
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/DearFriends.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
-                                source: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id gravida sem. Quisque vitae est ornare, tempus erat nec, sagittis mi. Suspendisse ut sagittis massa. Quisque malesuada vulputate elit, sed ornare purus dapibus a. Vestibulum finibus elementum ligula, vel condimentum lorem pellentesque in. Etiam tincidunt ut nunc sit amet lobortis. Mauris commodo metus ut scelerisque consectetur. Sed mollis est sed lectus placerat, vel porttitor urna iaculis. Donec sem libero, lobortis non dolor a, vehicula volutpat nisl. Pellentesque sodales odio vehicula ex iaculis, luctus ultricies dui blandit. Fusce consectetur magna eget ipsum viverra, a aliquet lacus rhoncus. Donec feugiat maximus mauris, ut sagittis dolor laoreet vitae. Aliquam nisl diam, feugiat at hendrerit vitae, tempus quis nunc. Suspendisse placerat lacus lacus, in sagittis risus dapibus non. Curabitur purus lacus, bibendum nec fringilla a, efficitur vel augue."
-                            },
-                            {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/EpistlefromMrsYongetoHerHusband.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Epistles/TheAlmondTree.json",
+                                source: undefined
+                            },
+                            {
+                                url: "Poems/Epistles/ToSirHenryWotton.json",
                                 source: undefined
                             }
                         ]
@@ -52,37 +54,37 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/automobile.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/france_citroen.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/Gallardo.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Cars/regular_car.svg",
                                     source: undefined
                                 }
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/Acon.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/Fan-PieceforHerImperialLord.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/London-mybeautiful.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Odes/OdeinMemory.json",
                                 source: undefined
                             }
                         ]
@@ -92,37 +94,37 @@ class ResourceComponent extends Component {
                         images:
                             [
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/barden_decor.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/botany_floral.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/easter_tulip.svg",
                                     source: undefined
                                 },
                                 {
-                                    url: "logo.svg",
+                                    url: "SVGPictures/Flowers/floral_bouquet.svg",
                                     source: undefined
                                 }
                             ],
                         texts: [
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/ATriad.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/LadyMontrevor.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/Sonnet126.json",
                                 source: undefined
                             },
                             {
-                                url: "test_tekst.txt",
+                                url: "Poems/Sonnets/SonnetV.json",
                                 source: undefined
                             }
                         ]
@@ -134,7 +136,7 @@ class ResourceComponent extends Component {
     loadResource(resources, resourceObject, callback){
         axios.get(resourceObject.url)
             .then(res => {
-                console.log(res.data);
+                //console.log(res.data);
                 resourceObject.source = res.data;
                 callback();
             })
@@ -145,6 +147,7 @@ class ResourceComponent extends Component {
 
     checkResourceLoaded(resourceArray, category, type, exhibition, callback){
         let resourceObject = resourceArray[category][type][exhibition];
+        //console.log(resourceObject);
         if (resourceObject.source === undefined){
             this.loadResource(resourceArray, resourceObject, callback);
         } else {
@@ -153,8 +156,7 @@ class ResourceComponent extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory) {
-
+        if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
             // Potential new AJAX call(s) if the resource is not already loaded
             this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
                     this.setState({resources: this.state.resources});
@@ -175,47 +177,30 @@ class ResourceComponent extends Component {
         // TODO: Not necessary to check, as nothing is loaded upon first mounting
         this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, () =>{
                 this.setState({resources: this.state.resources});
-                console.log(this.state.resources);
+                //console.log(this.state.resources);
             }
         );
         this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, () =>{
                 this.setState({resources: this.state.resources});
-                console.log(this.state.resources);
+                //console.log(this.state.resources);
             }
         );
     }
 
     render(){
+        const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
+        console.log(this.state.resources);
+        console.log(txtObj);
+
+        let txtComp;
+        if(txtObj){
+            txtComp = <TextComponent title={txtObj.title} author={txtObj.author} poem={txtObj.poem} />;
+        }
+
         return(
-            <div className="resourceComponent">
-
-                {console.log(this.state.resources)}
-                Får ikke lagt til faktiske bilder enda, da bildekomponentene ikke er skrevet enda, så her kommer det en cheap placeholder:
-                <br/>
-                <br/>
-                {console.log(`
-
-                <PictureComponent src={this.state.resources[this.props.imageCategory].images[this.props.exhibition}> </PictureComponent>
-
-                <TextComponent src={this.state.resources[this.props.textCategory].texts[this.props.exhibition                                                                                                           }> </TextComponent>
-
-                `)
-                }
-
-
-                {console.log(this.props)}
-                {console.log(this.state.resources)}
-
-                {/* This is just a placeholder, there should be components here when finished*/}
-                <div dangerouslySetInnerHTML={{__html: this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}}/>
-
-
-
-                <p dangerouslySetInnerHTML={{__html: this.state.resources[this.props.textCategory].texts[this.props.exhibition].source}}/>
-
-
-
-
+            <div className="resourceContainer">
+                <Picture picturesrc={this.state.resources[this.props.imageCategory].images[this.props.exhibition].source}/>
+                {txtComp}
             </div>
         )
     }
