@@ -72,3 +72,25 @@ Testingen av siden har blitt delt i to deler; kontinuerlig testing av funksjonal
 
 Vi har testet siden gjennom de forskjellige mobile enhetene våre(Huawei Honor og P10 lite, Nexus Experia), samt Mac, Windows og Linux, ved å ta screenshots av hvordan siden ser ut på skjermen. Nettleserene Google Chrome, Opera, FireFox, Internet Explorer, Safari og Microsoft Edge er brukt i kombinasjon med de ulike enhetene. Av rent praktiske hensyn har vi ikke tatt screenshots av alt, men av noen(Google Chrome, safari og opera, dette vil ligge i en egen mappe på GitHub.
 
+
+### Chrome Android (Huawei Honor 8)
+![alt text](https://i.imgur.com/ReiFceE.png "Chrome Android 1")
+![alt text](https://i.imgur.com/3pGSUQB.png "Chrome Android 2")
+
+### Chrome MacOS
+![alt text](https://i.imgur.com/qyskg1s.jpg "Chrome MacOS")
+
+### Firefox MacOS
+![alt text](https://i.imgur.com/HGTm3Ky.jpg "Firefoc MacOS")
+
+### Safari MacOS
+![alt text](https://i.imgur.com/03glVe3.jpg "Safari MacOS")
+
+### Opera Ubuntu
+![alt text](https://i.imgur.com/XlvTapa.png "Opera Ubuntu 1")
+![alt text](https://i.imgur.com/kmPp0d4.png "Opera Ubuntu 2")
+
+### Chrome Windows
+![alt text](https://i.imgur.com/5n5kkvw.png "Chrome Windows 1")
+![alt text](https://i.imgur.com/5vqk014.png "Chrome Windows 1")
+![alt text](https://i.imgur.com/CKuMZda.png "Chrome Windows 1")
