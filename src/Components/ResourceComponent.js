@@ -186,9 +186,9 @@ class ResourceComponent extends Component {
      * @param prevProps <object> The previous properties of the component
      */
     componentDidUpdate(prevProps) {
-        if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
+        if(prevProps.pictureCategory !== this.props.pictureCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
             // Potential new AJAX call(s) if the resource is not already loaded
-            this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, this.updateState);
+            this.checkResourceLoaded(this.state.resources, this.props.pictureCategory, 'images', this.props.exhibition, this.updateState);
             this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, this.updateState);
         }
     }
@@ -198,13 +198,13 @@ class ResourceComponent extends Component {
      */
     componentDidMount(){
         // Will perform AJAX calls
-        this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, this.updateState);
+        this.checkResourceLoaded(this.state.resources, this.props.pictureCategory, 'images', this.props.exhibition, this.updateState);
         this.checkResourceLoaded(this.state.resources, this.props.textCategory, 'texts', this.props.exhibition, this.updateState);
     }
 
     render(){
         const txtObj = this.state.resources[this.props.textCategory].texts[this.props.exhibition].source;
-        const pictureSrc = this.state.resources[this.props.imageCategory].images[this.props.exhibition].source;
+        const pictureSrc = this.state.resources[this.props.pictureCategory].images[this.props.exhibition].source;
         if(txtObj) {
             return [
                 <Picture key="0" picturesrc={pictureSrc}/>,
