@@ -48,7 +48,7 @@ Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hente
 - Viewport er allerede implementert i meta taggen til index.html fra før gjennom create-react-app.
 - Media-queries: 992px er det som skiller skjermen fra under og over skjermstørrelsen til laptop/desktop.
 - Bilder som skalerer: her er bredden til bildet satt til auto i CSS både over og under 992px.
-- Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er(se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
+- Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er (se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
 
 ## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
 
