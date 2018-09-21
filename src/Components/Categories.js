@@ -27,7 +27,7 @@ class Categories extends Component {
     {
         return (
             <div className="categories">
-                <span className="radioLabel">{this.state.mediaType}:</span>
+                <span className="form-title">{this.state.mediaType}:</span>
                 <form>
                     <label>
                         <input type="radio"

@@ -1,12 +1,9 @@
 .app{
     overflow-y: auto;
-    background-color: #e0e0e0;
+    background-color: #f0f0f0;
     height: 100vh;
 }
 
-.main-content{
-
-}
 
 @media only screen and (min-width: 992px){
     .main-content{

@@ -1,12 +1,29 @@
 .categories {
-    display: flex;
     width: 100%;
+    flex: 0 0 300px;
+    display: flex;
+    align-items: center;
+    margin: 0 10px 10px 10px;
+    justify-content: center;
 }
+.category-container {
+    width: 100%;
+    flex-wrap: wrap;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+/*
 .radioLabel {
     font-size: 22px;
     text-transform: capitalize;
 }
-.categories span{
-    font-size: 20px;
+
+*/
+
+.categories label, .categories > .form-title{
+    font-size: 16px;
     text-transform: capitalize;
 }
+
