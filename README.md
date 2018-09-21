@@ -12,6 +12,10 @@ React er et JavaScript-bibliotek for å bygge brukergrensesnitt. React er spesie
 
 Kilde: https://react.js
 
+
+### Komponentstruktur:
+![alt text](https://i.imgur.com/aQl2BXx.png "Komponentstruktur")
+
 ## AJAX
 
 AJAX (Asynchronous JavaScript And XML) er en metode som kombinerer et nettleser-innebygget XMLHttpRequest-objekt, for å be om data fra en web-server, og enten JavaScript eller HTML DOM for å henholdsvis bruke eller vise dataene. Denne teknikken gjør det mulig å utføre en rekke operasjoner som med standard HTML ville ha krevd at siden ble lastet på nytt; oppdatering av innhold og å be om, sende og motta data fra server.
