@@ -53,12 +53,12 @@ class App extends Component {
             <div className="app">
                 <h1 className="title">En legendarisk utstilling</h1>
                 <Tabs callback={this.handleTabChange}/>
+                <Categories mediaType='sound' name={['Applause', 'Horse', 'Laughter']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='picture' name={['Animals', 'Cars', 'Flowers']} callback={this.handleCategoryChange}/>
                 <Categories mediaType='text' name={['Epistles', 'Odes', 'Sonnets']} callback={this.handleCategoryChange}/>
-                <Categories mediaType='sound' name={['Applause', 'Horse', 'Laughter']} callback={this.handleCategoryChange}/>
                 <div className='main-content'>
-                    <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
                     <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
+                    <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
                 </div>
             </div>
         );

@@ -25,7 +25,6 @@ class Categories extends Component {
 
     render()
     {
-
         return (
             <div className="categories">
                 <span className="radioLabel">{this.state.mediaType}:</span>

@@ -1,18 +1,31 @@
 .app{
-    overflow-y: overlay;
+    overflow-y: auto;
     background-color: lightblue;
+    height: 100vh;
+}
+
+.main-content{
+    margin-bottom: 35px;
 }
 
 @media only screen and (min-width: 992px){
     .main-content{
-        display: flex;
-        width: 800px;
-        margin: 0 auto;
+        width: 80%;
+        max-width: 200vh;
+        margin: 0 auto 20px auto;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-auto-rows: 100px auto 100px;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
     }
+    /*
     .picture{
         width: 400px;
         height: 400px;
     }
+
+    */
 }
 
 .title{
