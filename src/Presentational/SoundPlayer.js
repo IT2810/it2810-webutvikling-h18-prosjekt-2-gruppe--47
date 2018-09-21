@@ -7,6 +7,11 @@ class SoundPlayer extends Component {
         this.audioRef = React.createRef();
     }
 
+    /**
+     * Called when the component is updated. Checks to see if the soundSource prop has been changed. If it has been,
+     * the current sound is paused, the new one is loaded, and the new sound is played.
+     * @param prevProps <object> The previous properties of the component
+     */
     componentDidUpdate(prevProps) {
         if(prevProps.soundSource !== this.props.soundSource) {
             this.audioRef.current.pause();
