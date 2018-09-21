@@ -5,14 +5,14 @@
 }
 
 .main-content{
-    margin-bottom: 35px;
+
 }
 
 @media only screen and (min-width: 992px){
     .main-content{
         width: 80%;
         max-width: 200vh;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 35px auto;
         display: grid;
         grid-template-columns: 50% 50%;
         grid-auto-rows: 100px auto 100px;
