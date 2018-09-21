@@ -1,9 +1,8 @@
 .tabs{
     display: flex;
     width: 100%;
-
 }
-.tabs > * {
+.tabs > button {
     font-size: 15px;
     width: 100%;
     padding: 10px;
@@ -11,19 +10,16 @@
     cursor: pointer;
     color: white;
     border-radius: 6px;
-}
-
-.tabs > *:focus {
-    outline:0;
-}
-
-.btn {
     background-color: rgb(139, 157, 195);
 }
 
-.btnselected {
+.tabs > button:focus {
+    outline:0;
+}
+
+.tabs > button.selected {
     background-color: rgb(59, 89, 152);
 }
-.btn:hover {
+.tabs > button:hover {
     background-color: rgb(99, 123, 174);
 }
