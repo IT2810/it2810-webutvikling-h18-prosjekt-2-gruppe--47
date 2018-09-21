@@ -7,7 +7,7 @@ const textComponent = (props) => {
         <div className="textComponent">
             <h1>{props.title}</h1>
             <br/>
-            <p>{props.author}</p>
+            <p className={'author-info'}>{props.author}</p>
             <br/>
             {/* Outputs all lines in the poem as a own p */}
             {props.poem.map((line, i) => <p key={i}>{line}</p>)}

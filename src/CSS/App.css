@@ -1,6 +1,6 @@
 .app{
     overflow-y: auto;
-    background-color: lightblue;
+    background-color: #e0e0e0;
     height: 100vh;
 }
 
@@ -19,17 +19,9 @@
         grid-column-gap: 0;
         grid-row-gap: 0;
     }
-    /*
-    .picture{
-        width: 400px;
-        height: 400px;
-    }
-
-    */
 }
 
 .title{
     text-align: center;
-    text-decoration: underline;
 }
 

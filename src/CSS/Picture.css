@@ -4,5 +4,5 @@
     grid-column: 1;
     grid-row: 2;
     align-self: start;
-    background-color: aquamarine;
+    padding-top: 10px;
 }
