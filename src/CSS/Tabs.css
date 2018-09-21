@@ -3,9 +3,27 @@
     width: 100%;
 
 }
-.btn{
-    font-size: 20px;
+.tabs > * {
+    font-size: 15px;
     width: 100%;
-    /*background-color: blue;*/
-    box-shadow: 2px 2px;
+    padding: 10px;
+    margin: 1px;
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+}
+
+.tabs > *:focus {
+    outline:0;
+}
+
+.btn {
+    background-color: rgb(139, 157, 195);
+}
+
+.btnselected {
+    background-color: rgb(59, 89, 152);
+}
+.btn:hover {
+    background-color: rgb(99, 123, 174);
 }
