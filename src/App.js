@@ -70,7 +70,7 @@ class App extends Component {
                 <Tabs callback={this.handleTabChange}/>
                 <div className='main-content'>
                     <SoundContainer category={this.state.soundCategory} exhibition={this.state.exhibition}/>
-                    <ResourceComponent imageCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
+                    <ResourceComponent pictureCategory={this.state.pictureCategory} textCategory={this.state.textCategory} exhibition={this.state.exhibition}/>
                 </div>
             </div>
         );
