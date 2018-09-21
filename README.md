@@ -6,9 +6,16 @@ Nettsiden gir brukeren mulighet til å se utstillinger satt sammen av bilde, tek
 React er et JavaScript-bibliotek for å bygge brukergrensesnitt. React er spesielt nyttig for å interaktive brukergrensesnitt, der input fra bruker blir gjennspeilet umiddelbart, uten å laste siden på nytt. Dette er mulig ved at oppdatering av tilstanden til en komponent trigger en ny tegning av komponenten.
 
 - Nettsiden er bygget med React, og hver enkelt komponent er skrevet ved hjelp av JSX som blir kompilert til HTML ved lasting av siden. 
-- Vi har laget en hovedkomponent som heter ResourceComponent, den holder styr på filplassering og gir beskjed til andre komponenter når endringer skjer.
-- Tilstanden til hele siden er også til en hver tid holdt styr på av ResourceComponent. Kun komponentene for valg av kategorier og valg av utstilling har kunnskap om egen tilstand, siden dette må vises i komponenten. 
+
 - UI-komponentene er standard XML-tagger med tilhørende className som har blitt stylet med CSS.
+
+- App.js holder state om hvilke kategorier og hvilken utstilling (exhibition) som er valgt. ResourceComponent initieres av App.js med properties om hvilke valg som er gjort basert på App sin state. 
+
+- ResourceComponent holder styr på lasting av ressurser. Når ResourceComponent får nye props fordi App har endret state, sjekker ResourceComponent om den allerede har lasta inn den etterspurte ressursen. Hvis den ikke er lastet tidligere, lastes ressursen asynkront med axios, og ResourceComponent oppdateres når lastingen har skjedd. ResourceComponent initierer Picture og TextComponent med kildekoden til ressursene. 
+
+- App.js initierer også SoundContainer med props om valgt lydkategori og utstilling (fra App sin state). SoundContainer inneholder et todimensjonalt array med stiene til lydfilene i de forskjellige kategoriene. SoundContainer initierer SoundPlayer med stien til den valgte lydfilen som prop.
+
+- Categories initieres med informasjon om de forskjellige kategoriene og hvilken medietype kategorivalget styrer, samt en callback-funksjon fra App.js. På samme måte initieres Tabs, men denne får kun inn en callback-funksjon. Når noe endres i enten Categories eller Tabs, avfyres deres respektive callback-funksjoner, og App.js oppdaterer deretter sin state.
 
 Kilde: https://react.js
 
