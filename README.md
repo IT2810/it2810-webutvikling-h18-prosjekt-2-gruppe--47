@@ -19,25 +19,26 @@ ResourceComponent holder styr på filplassering og gir beskjed til andre kompone
 
 Tilstanden til hele siden er også til en hver tid holdt styr på av ResourceComponent. Kun komponentene for valg av kategorier og valg av utstilling har kunnskap om egen tilstand, siden dette må vises i komponenten. 
 
-### UI-komponentene skal implementeres fra bunne av (uten bruk av tredjeparts komponenter).
+### UI-komponentene skal implementeres fra bunnen av (uten bruk av tredjeparts komponenter).
 
-UI-komponentene er standard HTML-tager som har blitt stylet med CSS.
+UI-komponentene er standard XML-tagger med tilhørende className som har blitt stylet med CSS.
 
 ## AJAX
 
-AJAX (Asynchronous JavaScript And XML) er en metode som kombinerer et nettleser-innebygget XMLHttpRequest-objekt, for be om data fra en nett-server, og enten JavaScript eller HTML DOM, for å henholdsvis bruke eller vise dataene. Denne teknikken gjør det mulig å utføre en rekke operasjoner som med standard HTML ville ha krevd at siden ble lastet på nytt; oppdatering av innhold og å be om, sende og motta data fra server.
+AJAX (Asynchronous JavaScript And XML) er en metode som kombinerer et nettleser-innebygget XMLHttpRequest-objekt, for å be om data fra en web-server, og enten JavaScript eller HTML DOM for å henholdsvis bruke eller vise dataene. Denne teknikken gjør det mulig å utføre en rekke operasjoner som med standard HTML ville ha krevd at siden ble lastet på nytt; oppdatering av innhold og å be om, sende og motta data fra server.
 
 Kilde: https://www.w3schools.com/xml/ajax_intro.asp
 
 ### Bildene (i svg) og teksten (i json) skal lastes dynamisk med AJAX (Asynchronous JavaScript And XML). Du står fritt i valg av tredjeparts javascript-bibliotek for dette.
 
-Vi har brukt Axios for å laste bilder og tekst dynamisk med AJAX. Axios er en promise-basert HTTP-klient for JavaScript. Promise vil si at 
+Vi har brukt Axios for å laste bilder og tekst dynamisk med AJAX. Axios er en promise-basert HTTP-klient for JavaScript. Promise gir oss mulighet til skrive asynkrone metoder slik som synkrone metoder, tanken er at verdien til metoden blir returnert senere (asynkront) når vi henter dataen inn fra en ekstern server.
 
 Kilde: https://medium.com/codingthesmartway-com-blog/getting-started-with-axios-166cb0035237
+Kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 ### Filene skal lastes kun hvis de benyttes. Dvs. at filer brukt i en kombinasjon først lastes når denne kombinasjonen vises (eksempelvis når en bruker velger denne tabben). Når filen først er lest, så skal innholdet lagres på klienten slik at de ikke blir å lastes flere ganger hvis en bruker blar frem og tilbake i en utstilling.
 
-Bildene og tekstene er lagret på server og blir først kallet med Axios når disse blir etterspurt av bruker. En liste over nett-adressene til alle filene er lagret ResourceComponent. Her blir også filene lagret, for eventuell senere bruk, etter at de har blitt lastet fra server første gang. På denne måten trenger siden verken å hente innhold fra server som ikke blir brukt, eller å hente samme innhold flere ganger. 
+Bildene og tekstene er lagret på server og blir først kallet med Axios når disse blir etterspurt av bruker. En liste over hostname til alle filene er lagret ResourceComponent. Her blir også filene lagret, for eventuell senere bruk, etter at de har blitt lastet fra server første gang. På denne måten trenger siden verken å hente innhold fra server som ikke blir brukt, eller å hente samme innhold flere ganger. 
 
 ### Lyd håndterer du med audio-taggen fra HTML5 og da trenger du ikke implementere noe spesifikt for å laste data (noen lurer sikker på hvorfor vi ikke bare bruker <img> for svg bildene, men målet med oppgaven er å gi erfaring i ajax-call og hente inn både xml- og json-data).
 
@@ -51,17 +52,17 @@ Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hente
 
 
 Følgende elementer skal være med i løsningen (eventuelt begrunnet i dokumentasjonen hvis det ikke er tatt med)
-Viewport
-Media-queries
-Bilder som skalerer
-Flytende/fleksibel layout
+Viewport er allerede implementert i meta taggen til index.html fra før gjennom create-react-app.
+Media-queries: 992px er det som skiller skjermen fra mobil/tablet til laptop/desktop.
+Bilder som skalerer: her er bredden til bildet satt til auto i CSS.
+Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er(se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
 Dette skal implementeres fra bunnen av uten bruk av eksterne CSS-rammeverk ea.
 
 ## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
 
 ### Koden i prosjektet skal være ryddig strukturert, ha fornuftig kommentering og ha navngiving av komponenter, variabler og funksjoner i tråd med anbefalinger (best practise).
 
-
+Vi har navngitt komponenter, variabler og komponenter i henhold til hva de gjør og med etablerte konvensjoner, dette gjør at det letter for oss å manipulerer DOMen, velge de rette elementene for å style i CSS og gjør ting mer lesbart.
 
 
 ### Gruppa skal bruke git i utviklingen (lenke til repository i github classroom kommer når gruppene er bestemt). Utviklingen skal dekomponeres i task som hver beskrives kort med en issue. Commits markeres med hvilken issue de bidrar til/løser. 
