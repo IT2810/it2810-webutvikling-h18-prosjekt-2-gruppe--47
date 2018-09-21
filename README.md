@@ -17,10 +17,11 @@ ResourceComponent holder styr på filplassering og gir beskjed til andre kompone
 
 ### Bruk kun de ordinære mekanismene i React for å lagre håndtere og lagre data (du skal mao ikke bruke løsninger som redux, mobx eller andre bibliotek for å håndtere tilstand).
 
-Tilstanden til hele siden er også til sen hver tid holdt styr på av ResourceComponent. Kun komponentene for valg av kategorier og valg av utstilling har kunnskap om egen status, siden dette må vises i komponenten. 
+Tilstanden til hele siden er også til en hver tid holdt styr på av ResourceComponent. Kun komponentene for valg av kategorier og valg av utstilling har kunnskap om egen tilstand, siden dette må vises i komponenten. 
 
 ### UI-komponentene skal implementeres fra bunne av (uten bruk av tredjeparts komponenter).
-UI-komponentene er standard HTML som har blitt stylet med CSS.
+
+UI-komponentene er standard HTML-tager som har blitt stylet med CSS.
 
 ## AJAX
 
@@ -40,6 +41,8 @@ Bildene og tekstene er lagret på server og blir først kallet med Axios når di
 
 ### Lyd håndterer du med audio-taggen fra HTML5 og da trenger du ikke implementere noe spesifikt for å laste data (noen lurer sikker på hvorfor vi ikke bare bruker <img> for svg bildene, men målet med oppgaven er å gi erfaring i ajax-call og hente inn både xml- og json-data).
 
+Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hentes fra server basert på status til siden.
+
 ## RESPONSIVE WEB DESIGN
 
 ### Løsningen skal implementeres med responsiv design som tilpasser seg skjermens størrelse og orientering, og plattform.
@@ -53,17 +56,24 @@ Media-queries
 Bilder som skalerer
 Flytende/fleksibel layout
 Dette skal implementeres fra bunnen av uten bruk av eksterne CSS-rammeverk ea.
-SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
-Koden i prosjektet skal være ryddig strukturert, ha fornuftig kommentering og ha navngiving av komponenter, variabler og funksjoner i tråd med anbefalinger (best practise).
-Gruppa skal bruke git i utviklingen (lenke til repository i github classroom kommer når gruppene er bestemt). Utviklingen skal dekomponeres i task som hver beskrives kort med en issue. Commits markeres med hvilken issue de bidrar til/løser. 
-Ved innleveringsfristen vil github classroom automtisk lagre en snapshot av prosjektet som blir den formelle innleveringen. 
-På evalueringsdagen 24/9 skal siste versjon av systemet være tilgjengelig på den virtuelle maskinen som gruppa har fått tildelt. Prosjektet gjøres tilgjenglig som xxxx.idi.ntnu.no/prosjekt1. Lag en production build som legges under Apache web serveren som lytter på port 80. 
-Node.js og NPM
 
-Installer Node.js (inkluderer npm node package manager) på egen maskin
-Bruk pakken create-react-app for å komme i gang (bruk kommandoen "npx create-react-app mittprosjektnavn"
-Krav til testing
-Testing i denne prosjektet har fokus på brukegrensensitt og repsonsiv web design. 
+## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
 
-Gruppa skal dokumentere testing på minimum 3 forskjellige enheter hvor det må inngå en mobil (lite skjerm/horisontal + vertikal orientering og en ordinær pc (stor skjerm). 
-Test brukergrensesnitt systematisk og dokumenter hvordan dere har test.
+### Koden i prosjektet skal være ryddig strukturert, ha fornuftig kommentering og ha navngiving av komponenter, variabler og funksjoner i tråd med anbefalinger (best practise).
+
+
+
+
+### Gruppa skal bruke git i utviklingen (lenke til repository i github classroom kommer når gruppene er bestemt). Utviklingen skal dekomponeres i task som hver beskrives kort med en issue. Commits markeres med hvilken issue de bidrar til/løser. 
+
+I utviklingen har vi brukt git for å fordele arbeidsoppgaver. Vi har dekomponert utviklingen i tasks som vi har beskrevet med en kort issue. Vi har også benyttet oss av branches for å skille arbeid med forskjellinge issues fra hverandre. I tillegg har commits blitt markert med med nummeret til issuet de bidrar til eller løser. Når en branch har løst en issue har vi merget den inn i develop-branchen. Denne har blitt brukt som utgangspunkt for nye brancher, og for teste om ulike deler av koden fungerer sammen.  
+
+## Krav til testing
+
+### Testing i denne prosjektet har fokus på brukegrensensitt og repsonsiv web design. Gruppa skal dokumentere testing på minimum 3 forskjellige enheter hvor det må inngå en mobil (lite skjerm/horisontal + vertikal orientering og en ordinær pc (stor skjerm). 
+
+Testingen av siden har blitt delt i to deler; kontinuerlig testing av funksjonalitet i bygging av siden og testing av hele siden med fokus utsende til slutt. Den siste delen bestod av å laste production build av siden på mobil enhet, både horisontal og vertikal orientering, og på en stor pc-skjerm. Fokuset i testing har vært at siden ser bra ut og fungerer som den skal på alle enhetene. 
+
+### Test brukergrensesnitt systematisk og dokumenter hvordan dere har test.
+
+
