@@ -7,19 +7,19 @@ React er et JavaScript-bibliotek for å bygge brukergrensesnitt. React er spesie
 
 Kilde: https://react.js
 
-### Løsningen skal baseres på React (og JSX).
+### React (og JSX).
 
 Nettsiden er bygget med React, og hver enkelt komponent er skrevet ved hjelp av JSX som blir kompilert til HTML ved lasting av siden. 
 
-### Bruk ES6 (Javascript) og implementer komponentene med class, og implementere en hesiktsmessig komponentstruktur.
+### Bruk ES6 (Javascript).
 
 ResourceComponent holder styr på filplassering og gir beskjed til andre komponenter når endringer skjer.
 
-### Bruk kun de ordinære mekanismene i React for å lagre håndtere og lagre data (du skal mao ikke bruke løsninger som redux, mobx eller andre bibliotek for å håndtere tilstand).
+### Håndtering av tilstand.
 
 Tilstanden til hele siden er også til en hver tid holdt styr på av ResourceComponent. Kun komponentene for valg av kategorier og valg av utstilling har kunnskap om egen tilstand, siden dette må vises i komponenten. 
 
-### UI-komponentene skal implementeres fra bunnen av (uten bruk av tredjeparts komponenter).
+### UI-komponentene.
 
 UI-komponentene er standard XML-tagger med tilhørende className som har blitt stylet med CSS.
 
@@ -29,52 +29,46 @@ AJAX (Asynchronous JavaScript And XML) er en metode som kombinerer et nettleser-
 
 Kilde: https://www.w3schools.com/xml/ajax_intro.asp
 
-### Bildene (i svg) og teksten (i json) skal lastes dynamisk med AJAX (Asynchronous JavaScript And XML). Du står fritt i valg av tredjeparts javascript-bibliotek for dette.
+### Lasting av bilder med AJAX.
 
 Vi har brukt Axios for å laste bilder og tekst dynamisk med AJAX. Axios er en promise-basert HTTP-klient for JavaScript. Promise gir oss mulighet til skrive asynkrone metoder slik som synkrone metoder, tanken er at verdien til metoden blir returnert senere (asynkront) når vi henter dataen inn fra en ekstern server.
 
 Kilde: https://medium.com/codingthesmartway-com-blog/getting-started-with-axios-166cb0035237
 Kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-### Filene skal lastes kun hvis de benyttes. Dvs. at filer brukt i en kombinasjon først lastes når denne kombinasjonen vises (eksempelvis når en bruker velger denne tabben). Når filen først er lest, så skal innholdet lagres på klienten slik at de ikke blir å lastes flere ganger hvis en bruker blar frem og tilbake i en utstilling.
+### Caching av bilder og tekst.
 
 Bildene og tekstene er lagret på server og blir først kallet med Axios når disse blir etterspurt av bruker. En liste over hostname til alle filene er lagret ResourceComponent. Her blir også filene lagret, for eventuell senere bruk, etter at de har blitt lastet fra server første gang. På denne måten trenger siden verken å hente innhold fra server som ikke blir brukt, eller å hente samme innhold flere ganger. 
 
-### Lyd håndterer du med audio-taggen fra HTML5 og da trenger du ikke implementere noe spesifikt for å laste data (noen lurer sikker på hvorfor vi ikke bare bruker <img> for svg bildene, men målet med oppgaven er å gi erfaring i ajax-call og hente inn både xml- og json-data).
+### Implementering av lyd.
 
 Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hentes fra server basert på status til siden.
 
 ## RESPONSIVE WEB DESIGN
 
-### Løsningen skal implementeres med responsiv design som tilpasser seg skjermens størrelse og orientering, og plattform.
-
-### Skal skifte layout mellom breddeformat (f.eks. bilde og tekst ved siden av hverandre) og høydeformat (bilde med teksten under f.eks.). Bredde vs. høyde kan også demonstreres med andre elementer enn tekst og bilde.
-
-
-Følgende elementer skal være med i løsningen (eventuelt begrunnet i dokumentasjonen hvis det ikke er tatt med)
-Viewport er allerede implementert i meta taggen til index.html fra før gjennom create-react-app.
-Media-queries: 992px er det som skiller skjermen fra mobil/tablet til laptop/desktop.
-Bilder som skalerer: her er bredden til bildet satt til auto i CSS.
-Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er(se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
-Dette skal implementeres fra bunnen av uten bruk av eksterne CSS-rammeverk ea.
+- Viewport er allerede implementert i meta taggen til index.html fra før gjennom create-react-app.
+- Media-queries: 992px er det som skiller skjermen fra under og over laptop/desktop.
+- Bilder som skalerer: her er bredden til bildet satt til auto i CSS både over og under 992px.
+- Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er(se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
 
 ## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
 
-### Koden i prosjektet skal være ryddig strukturert, ha fornuftig kommentering og ha navngiving av komponenter, variabler og funksjoner i tråd med anbefalinger (best practise).
+### Kodestruktur.
 
 Vi har navngitt komponenter, variabler og komponenter i henhold til hva de gjør og med etablerte konvensjoner, dette gjør at det letter for oss å manipulerer DOMen, velge de rette elementene for å style i CSS og gjør ting mer lesbart.
 
 
-### Gruppa skal bruke git i utviklingen (lenke til repository i github classroom kommer når gruppene er bestemt). Utviklingen skal dekomponeres i task som hver beskrives kort med en issue. Commits markeres med hvilken issue de bidrar til/løser. 
+### Bruk av Git.
 
 I utviklingen har vi brukt git for å fordele arbeidsoppgaver. Vi har dekomponert utviklingen i tasks som vi har beskrevet med en kort issue. Vi har også benyttet oss av branches for å skille arbeid med forskjellinge issues fra hverandre. I tillegg har commits blitt markert med med nummeret til issuet de bidrar til eller løser. Når en branch har løst en issue har vi merget den inn i develop-branchen. Denne har blitt brukt som utgangspunkt for nye brancher, og for teste om ulike deler av koden fungerer sammen.  
 
-## Krav til testing
+## Krav til testing.
 
-### Testing i denne prosjektet har fokus på brukegrensensitt og repsonsiv web design. Gruppa skal dokumentere testing på minimum 3 forskjellige enheter hvor det må inngå en mobil (lite skjerm/horisontal + vertikal orientering og en ordinær pc (stor skjerm). 
+### Testing på ulike enheter
 
 Testingen av siden har blitt delt i to deler; kontinuerlig testing av funksjonalitet i bygging av siden og testing av hele siden med fokus utsende til slutt. Den siste delen bestod av å laste production build av siden på mobil enhet, både horisontal og vertikal orientering, og på en stor pc-skjerm. Fokuset i testing har vært at siden ser bra ut og fungerer som den skal på alle enhetene. 
 
-### Test brukergrensesnitt systematisk og dokumenter hvordan dere har test.
+### Hvor vi har test og hva vi har dokumentert.
 
+Vi har testet siden gjennom de forskjellige mobile enhetene våre(Huawei Honor og P10 lite, Nexus Experia), samt Mac, Windows og Linux, ved å ta screenshots av hvordan siden ser ut på skjermen. Nettleserene Google Chrome, Opera, FireFox, Internet Explorer, Safari og Microsoft Edge er brukt i kombinasjon med de ulike enhetene. Av rent praktiske hensyn har vi ikke tatt screenshots av alt, men av noen(Google Chrome, safari og opera, dette vil ligge i en egen mappe på GitHub.
 
