@@ -131,14 +131,25 @@ class ResourceComponent extends Component {
                     }
             ]
         };
+
+        // Binding the _this_ scope since this function will be provided as a callback function
         this.updateState = this.updateState.bind(this);
     }
 
+    /**
+     * Helper function to update the component whenever something has changed
+     */
     updateState(){
         this.setState({resources: this.state.resources});
     }
 
-    loadResource(resources, resourceObject, callback){
+    /**
+     * Simple axios loader that loads the resource asynchronous and calls the callback upon success, or logs the
+     * error upon failure
+     * @param resourceObject <object> The object of this resource in this.state
+     * @param callback <function> The callback function that will be called upon success
+     */
+    loadResource(resourceObject, callback){
         axios.get(resourceObject.url)
             .then(res => {
                 resourceObject.source = res.data;
@@ -149,15 +160,31 @@ class ResourceComponent extends Component {
             })
     }
 
+    /**
+     * Checks if the resource is loaded, calls callback if the resource is already loaded,
+     * loads the resource through loadResource if not
+     * @param resourceArray <object> the _resources_ object in this.state
+     * @param category <number> The category of the resource that is requested
+     * @param type <string> The type of the resource that is requested
+     * @param exhibition <number> The exhibition of the resource that is requested
+     * @param callback <function> The function that is called when the object is loaded, or called immediately if the
+     * object is already loaded
+     */
     checkResourceLoaded(resourceArray, category, type, exhibition, callback){
         let resourceObject = resourceArray[category][type][exhibition];
         if (resourceObject.source === undefined){
-            this.loadResource(resourceArray, resourceObject, callback);
+            this.loadResource(resourceObject, callback);
         } else {
             callback();
         }
     }
 
+    /**
+     * Called if the component was updated. Checks to see if the properties were changed, to initiate loading of new
+     * resources (they will not reload if the "new resources" were already loaded earlier). If the important props were
+     * not changed, nothing happens.
+     * @param prevProps <object> The previous properties of the component
+     */
     componentDidUpdate(prevProps) {
         if(prevProps.imageCategory !== this.props.imageCategory || prevProps.textCategory !== this.props.textCategory || prevProps.exhibition !== this.props.exhibition) {
             // Potential new AJAX call(s) if the resource is not already loaded
@@ -166,6 +193,9 @@ class ResourceComponent extends Component {
         }
     }
 
+    /**
+     * Called initially when the component is mounted the first time. Not called upon component updates.
+     */
     componentDidMount(){
         // Will perform AJAX calls
         this.checkResourceLoaded(this.state.resources, this.props.imageCategory, 'images', this.props.exhibition, this.updateState);

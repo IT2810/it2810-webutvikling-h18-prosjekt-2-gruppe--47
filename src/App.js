@@ -16,16 +16,26 @@ class App extends Component {
             exhibition: 0
         };
 
+        // Binding the _this_ scope since these functions will be provided as callback functions to other components
         this.handleCategoryChange = this.handleCategoryChange.bind(this);
         this.handleTabChange = this.handleTabChange.bind(this);
     }
 
+    /**
+     * callback for TabComponent, called whenever the current tab ("exhibition") is changed
+     * @param new_value <number>
+     */
     handleTabChange(new_value) {
         this.setState({
             exhibition: new_value
         });
     }
 
+    /**
+     * callback for Categories, called whenever a category is changed.
+     * Same callback function for all categories, need to check which category the "Categories" Component is tied to.
+     * @param categoryState <object> The entire state of the "Categories" Component that is calling back.
+     */
     handleCategoryChange(categoryState){
         switch (categoryState.mediaType) {
             case 'picture':

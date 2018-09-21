@@ -20,6 +20,7 @@
 .tabs > button.selected {
     background-color: rgb(59, 89, 152);
 }
-.tabs > button:hover {
+
+.tabs > button:not(.selected):hover {
     background-color: rgb(99, 123, 174);
 }

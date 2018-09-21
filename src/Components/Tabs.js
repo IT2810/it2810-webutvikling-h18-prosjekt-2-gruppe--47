@@ -8,6 +8,14 @@ class Tabs extends Component {
             selected: 0
         }
     }
+
+    /**
+     * Called by onclick whenever one of the tabs are selected. The parameter _selector_ is the exhibition number of
+     * the clicked tab.
+     * The state is updated, and then the new _selected_ <number> is sent to the parent component
+     * trough the callback
+     * @param selector <number>
+     */
     handleChange = (selector) => {
         this.setState ({
             selected: selector

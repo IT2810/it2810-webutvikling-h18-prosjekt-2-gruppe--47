@@ -14,7 +14,13 @@ class Categories extends Component {
             selectedOption: 0
         }
     }
-    //Method that changes the state of the component and the parent to
+
+    /**
+     * Called by onclick events whenever one of the radio options are selected. The onclick event is used to evaluate
+     * which option was selected. The state is updated, and then the new state is sent to the parent component
+     * trough the callback
+     * @param event <object> The onclick event that is fired when a option is selected.
+     */
     handleOptionChange = (event) => {
         this.setState({
             selectedOption: Number(event.target.value)
