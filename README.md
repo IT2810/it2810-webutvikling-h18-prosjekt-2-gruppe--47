@@ -2,7 +2,7 @@
 
 Nettsiden gir brukeren mulighet til å se utstillinger satt sammen av bilde, tekst og lyd. Brukeren kan velge mellom tre ulike kategorier innenfor hver mediatype. For hver kombinasjon av valg blir det tilgjengelig fire utstillinger. Bruker kan bytte mellom disse fire ved hjelp av faner. Ved bytte av kategori vil fire nye utstillinger genereres.
 
-## REACT
+## React
 React er et JavaScript-bibliotek for å bygge brukergrensesnitt. React er spesielt nyttig for å interaktive brukergrensesnitt, der input fra bruker blir gjennspeilet umiddelbart, uten å laste siden på nytt. Dette er mulig ved at oppdatering av tilstanden til en komponent trigger en ny tegning av komponenten.
 
 - Nettsiden er bygget med React, og hver enkelt komponent er skrevet ved hjelp av JSX som blir kompilert til HTML ved lasting av siden. 
@@ -50,14 +50,14 @@ Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hente
 - Tekstene er dikt hentet fra poets.org.
 - De fleste bildene er hentet fra svgsilh.com eller ved søk gjennom google med merket for gjenbruk.
 
-## RESPONSIVE WEB DESIGN
+## Responsive Web Design
 
 - Viewport er allerede implementert i meta taggen til index.html fra før gjennom create-react-app.
 - Media-queries: 992px er det som skiller skjermen fra under og over skjermstørrelsen til laptop/desktop.
 - Bilder som skalerer: her er bredden til bildet satt til auto i CSS både over og under 992px.
 - Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er (se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
 
-## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
+## Samarbeid, bruk av Git, koding
 
 ### Kodestruktur.
 
