@@ -40,18 +40,17 @@ Lyd håndteres med audio-tag fra HTML5 som blir generert med mp3-filer som hente
 - Bilder som skalerer: her er bredden til bildet satt til auto i CSS både over og under 992px.
 - Flytende/fleksibel layout: avhengig hvor stor skjermstørrelsen er(se media-queries) har vi under satt skjermstørrelse brukt CSS-flexbox, mens når vi er over bruker vi CSS-Grid.
 
-## SAMARBEID, BRUK AV GIT, KODING, LEVERANSE
+## SAMARBEID, GIT og KODING
 
 ### Kodestruktur.
 
 Vi har navngitt variabler og komponenter i henhold til hva de gjør og med etablerte konvensjoner, dette gjør at det lettere for oss å manipulere DOMen, velge de rette elementene for å style i CSS og gjør ting mer lesbart.
 
-
 ### Bruk av Git.
 
 I utviklingen har vi brukt git for å fordele arbeidsoppgaver. Vi har dekomponert utviklingen i tasks som vi har beskrevet med en kort issue. Vi har også benyttet oss av branches for å skille arbeid med forskjellinge issues fra hverandre. I tillegg har commits blitt markert med med nummeret til issuet de bidrar til eller løser. Når en branch har løst en issue har vi merget den inn i develop-branchen. Denne har blitt brukt som utgangspunkt for nye brancher, og for teste om ulike deler av koden fungerer sammen.  
 
-## Krav til testing.
+## Krav til testing
 
 ### Testing på ulike enheter
 
