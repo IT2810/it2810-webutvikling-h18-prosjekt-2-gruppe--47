@@ -1,0 +1,8 @@
+.picture > svg {
+    width: 100%;
+    height: auto;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    padding-top: 10px;
+}

@@ -1,0 +1,23 @@
+.app{
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+
+@media only screen and (min-width: 992px){
+    .main-content{
+        width: 80%;
+        max-width: 200vh;
+        margin: 0 auto 35px auto;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-auto-rows: 100px auto 100px;
+        grid-column-gap: 0;
+        grid-row-gap: 0;
+    }
+}
+
+.title{
+    text-align: center;
+}
